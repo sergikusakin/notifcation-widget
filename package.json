@@ -11,6 +11,7 @@
     "type-check": "vue-tsc --build --force"
   },
   "dependencies": {
+    "floating-vue": "^2.0.0-beta.24",
     "primevue": "^3.44.0",
     "vue": "^3.3.11",
     "vue-router": "^4.2.5"
