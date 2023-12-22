@@ -21,29 +21,35 @@
     <template #popper>
       <!-- You can put other components too -->
       <div class="p-2">
-        <div class="border-2">
-          <div class="p-2 h-20 w-80">
-            <div class="rounded-full"></div>
-            Imagen and text
-            <p>Nofitication description and some additional information</p>
+        <div class="pt-1 border-b-2 border-blue-900">
+          <!-- text and avatar of notification -->
+          <div class="flex p-2 h-auto w-auto">
+            <div class="rounded-full w-10 h-10 bg-yellow-500"></div>
+            <div class="pl-3">
+              <p class="text-xs text-gray-400">15/12/2023 18:16</p>
+              <p class="h-auto w-64 text-sm">
+                Nofitication description and some additional information...
+              </p>
+            </div>
           </div>
+          <!-- btns actions -->
           <div class="p-2 h-12 flex justify-between">
             <div class="flex justify-center">
               <Button
-                class="bg-sky-300 p-1 mr-3"
+                class="bg-sky-300 p-1 mr-3 text-sm"
                 type="button"
                 label="Action"
                 severity="info"
               />
               <Button
-                class="bg-violet-400 p-1"
+                class="bg-violet-400 p-1 text-sm"
                 type="button"
                 label="Another action"
                 severity="help"
               />
             </div>
 
-            <div class="flex justify-end border-2">
+            <div class="flex justify-end">
               <Button>
                 <template #icon>
                   <Icon class="h-10 w-10" :icon="checkboxMarked" />
@@ -51,16 +57,342 @@
               </Button>
             </div>
           </div>
-          <div class="border-2">2</div>
-          <div class="border-2">3</div>
-          <div class="border-2">4</div>
-          <div class="border-2">5</div>
-          <div class="border-2">6</div>
-          <div class="border-2">7</div>
-          <div class="border-2">8</div>
-          <div class="border-2">9</div>
-          <div>silent mode</div>
         </div>
+
+        <div class="pt-1 border-b-2 border-blue-900">
+          <!-- text and avatar of notification -->
+          <div class="flex p-2 h-auto w-auto">
+            <div class="rounded-full w-10 h-10 bg-yellow-500"></div>
+            <div class="pl-3">
+              <p class="text-xs text-gray-400">15/12/2023 18:16</p>
+              <p class="h-auto w-64 text-sm">
+                Nofitication description and some additional information...
+              </p>
+            </div>
+          </div>
+          <!-- btns actions -->
+          <div class="p-2 h-12 flex justify-between">
+            <div class="flex justify-center">
+              <Button
+                class="bg-sky-300 p-1 mr-3 text-sm"
+                type="button"
+                label="Action"
+                severity="info"
+              />
+              <Button
+                class="bg-violet-400 p-1 text-sm"
+                type="button"
+                label="Another action"
+                severity="help"
+              />
+            </div>
+
+            <div class="flex justify-end">
+              <Button>
+                <template #icon>
+                  <Icon class="h-10 w-10" :icon="checkboxMarked" />
+                </template>
+              </Button>
+            </div>
+          </div>
+        </div>
+        <div class="pt-1 border-b-2 border-blue-900">
+          <!-- text and avatar of notification -->
+          <div class="flex p-2 h-auto w-auto">
+            <div class="rounded-full w-10 h-10 bg-yellow-500"></div>
+            <div class="pl-3">
+              <p class="text-xs text-gray-400">15/12/2023 18:16</p>
+              <p class="h-auto w-64 text-sm">
+                Nofitication description and some additional information...
+              </p>
+            </div>
+          </div>
+          <!-- btns actions -->
+          <div class="p-2 h-12 flex justify-between">
+            <div class="flex justify-center">
+              <Button
+                class="bg-sky-300 p-1 mr-3 text-sm"
+                type="button"
+                label="Action"
+                severity="info"
+              />
+              <Button
+                class="bg-violet-400 p-1 text-sm"
+                type="button"
+                label="Another action"
+                severity="help"
+              />
+            </div>
+
+            <div class="flex justify-end">
+              <Button>
+                <template #icon>
+                  <Icon class="h-10 w-10" :icon="checkboxMarked" />
+                </template>
+              </Button>
+            </div>
+          </div>
+        </div>
+        <div class="pt-1 border-b-2 border-blue-900">
+          <!-- text and avatar of notification -->
+          <div class="flex p-2 h-auto w-auto">
+            <div class="rounded-full w-10 h-10 bg-yellow-500"></div>
+            <div class="pl-3">
+              <p class="text-xs text-gray-400">15/12/2023 18:16</p>
+              <p class="h-auto w-64 text-sm">
+                Nofitication description and some additional information...
+              </p>
+            </div>
+          </div>
+          <!-- btns actions -->
+          <div class="p-2 h-12 flex justify-between">
+            <div class="flex justify-center">
+              <Button
+                class="bg-sky-300 p-1 mr-3 text-sm"
+                type="button"
+                label="Action"
+                severity="info"
+              />
+              <Button
+                class="bg-violet-400 p-1 text-sm"
+                type="button"
+                label="Another action"
+                severity="help"
+              />
+            </div>
+
+            <div class="flex justify-end">
+              <Button>
+                <template #icon>
+                  <Icon class="h-10 w-10" :icon="checkboxMarked" />
+                </template>
+              </Button>
+            </div>
+          </div>
+        </div>
+        <div class="pt-1 border-b-2 border-blue-900">
+          <!-- text and avatar of notification -->
+          <div class="flex p-2 h-auto w-auto">
+            <div class="rounded-full w-10 h-10 bg-yellow-500"></div>
+            <div class="pl-3">
+              <p class="text-xs text-gray-400">15/12/2023 18:16</p>
+              <p class="h-auto w-64 text-sm">
+                Nofitication description and some additional information...
+              </p>
+            </div>
+          </div>
+          <!-- btns actions -->
+          <div class="p-2 h-12 flex justify-between">
+            <div class="flex justify-center">
+              <Button
+                class="bg-sky-300 p-1 mr-3 text-sm"
+                type="button"
+                label="Action"
+                severity="info"
+              />
+              <Button
+                class="bg-violet-400 p-1 text-sm"
+                type="button"
+                label="Another action"
+                severity="help"
+              />
+            </div>
+
+            <div class="flex justify-end">
+              <Button>
+                <template #icon>
+                  <Icon class="h-10 w-10" :icon="checkboxMarked" />
+                </template>
+              </Button>
+            </div>
+          </div>
+        </div>
+        <div class="pt-1 border-b-2 border-blue-900">
+          <!-- text and avatar of notification -->
+          <div class="flex p-2 h-auto w-auto">
+            <div class="rounded-full w-10 h-10 bg-yellow-500"></div>
+            <div class="pl-3">
+              <p class="text-xs text-gray-400">15/12/2023 18:16</p>
+              <p class="h-auto w-64 text-sm">
+                Nofitication description and some additional information...
+              </p>
+            </div>
+          </div>
+          <!-- btns actions -->
+          <div class="p-2 h-12 flex justify-between">
+            <div class="flex justify-center">
+              <Button
+                class="bg-sky-300 p-1 mr-3 text-sm"
+                type="button"
+                label="Action"
+                severity="info"
+              />
+              <Button
+                class="bg-violet-400 p-1 text-sm"
+                type="button"
+                label="Another action"
+                severity="help"
+              />
+            </div>
+
+            <div class="flex justify-end">
+              <Button>
+                <template #icon>
+                  <Icon class="h-10 w-10" :icon="checkboxMarked" />
+                </template>
+              </Button>
+            </div>
+          </div>
+        </div>
+        <div class="pt-1 border-b-2 border-blue-900">
+          <!-- text and avatar of notification -->
+          <div class="flex p-2 h-auto w-auto">
+            <div class="rounded-full w-10 h-10 bg-yellow-500"></div>
+            <div class="pl-3">
+              <p class="text-xs text-gray-400">15/12/2023 18:16</p>
+              <p class="h-auto w-64 text-sm">
+                Nofitication description and some additional information...
+              </p>
+            </div>
+          </div>
+          <!-- btns actions -->
+          <div class="p-2 h-12 flex justify-between">
+            <div class="flex justify-center">
+              <Button
+                class="bg-sky-300 p-1 mr-3 text-sm"
+                type="button"
+                label="Action"
+                severity="info"
+              />
+              <Button
+                class="bg-violet-400 p-1 text-sm"
+                type="button"
+                label="Another action"
+                severity="help"
+              />
+            </div>
+
+            <div class="flex justify-end">
+              <Button>
+                <template #icon>
+                  <Icon class="h-10 w-10" :icon="checkboxMarked" />
+                </template>
+              </Button>
+            </div>
+          </div>
+        </div>
+        <div class="pt-1 border-b-2 border-blue-900">
+          <!-- text and avatar of notification -->
+          <div class="flex p-2 h-auto w-auto">
+            <div class="rounded-full w-10 h-10 bg-yellow-500"></div>
+            <div class="pl-3">
+              <p class="text-xs text-gray-400">15/12/2023 18:16</p>
+              <p class="h-auto w-64 text-sm">
+                Nofitication description and some additional information...
+              </p>
+            </div>
+          </div>
+          <!-- btns actions -->
+          <div class="p-2 h-12 flex justify-between">
+            <div class="flex justify-center">
+              <Button
+                class="bg-sky-300 p-1 mr-3 text-sm"
+                type="button"
+                label="Action"
+                severity="info"
+              />
+              <Button
+                class="bg-violet-400 p-1 text-sm"
+                type="button"
+                label="Another action"
+                severity="help"
+              />
+            </div>
+
+            <div class="flex justify-end">
+              <Button>
+                <template #icon>
+                  <Icon class="h-10 w-10" :icon="checkboxMarked" />
+                </template>
+              </Button>
+            </div>
+          </div>
+        </div>
+        <div class="pt-1 border-b-2 border-blue-900">
+          <!-- text and avatar of notification -->
+          <div class="flex p-2 h-auto w-auto">
+            <div class="rounded-full w-10 h-10 bg-yellow-500"></div>
+            <div class="pl-3">
+              <p class="text-xs text-gray-400">15/12/2023 18:16</p>
+              <p class="h-auto w-64 text-sm">
+                Nofitication description and some additional information...
+              </p>
+            </div>
+          </div>
+          <!-- btns actions -->
+          <div class="p-2 h-12 flex justify-between">
+            <div class="flex justify-center">
+              <Button
+                class="bg-sky-300 p-1 mr-3 text-sm"
+                type="button"
+                label="Action"
+                severity="info"
+              />
+              <Button
+                class="bg-violet-400 p-1 text-sm"
+                type="button"
+                label="Another action"
+                severity="help"
+              />
+            </div>
+
+            <div class="flex justify-end">
+              <Button>
+                <template #icon>
+                  <Icon class="h-10 w-10" :icon="checkboxMarked" />
+                </template>
+              </Button>
+            </div>
+          </div>
+        </div>
+        <div class="pt-1 border-b-2 border-blue-900">
+          <!-- text and avatar of notification -->
+          <div class="flex p-2 h-auto w-auto">
+            <div class="rounded-full w-10 h-10 bg-yellow-500"></div>
+            <div class="pl-3">
+              <p class="text-xs text-gray-400">15/12/2023 18:16</p>
+              <p class="h-auto w-64 text-sm">
+                Nofitication description and some additional information...
+              </p>
+            </div>
+          </div>
+          <!-- btns actions -->
+          <div class="p-2 h-12 flex justify-between">
+            <div class="flex justify-center">
+              <Button
+                class="bg-sky-300 p-1 mr-3 text-sm"
+                type="button"
+                label="Action"
+                severity="info"
+              />
+              <Button
+                class="bg-violet-400 p-1 text-sm"
+                type="button"
+                label="Another action"
+                severity="help"
+              />
+            </div>
+
+            <div class="flex justify-end">
+              <Button>
+                <template #icon>
+                  <Icon class="h-10 w-10" :icon="checkboxMarked" />
+                </template>
+              </Button>
+            </div>
+          </div>
+        </div>
+        <div>silent mode</div>
       </div>
     </template>
   </f-dropdown>
