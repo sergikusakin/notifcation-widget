@@ -392,7 +392,24 @@
             </div>
           </div>
         </div>
-        <div>silent mode</div>
+        <!-- control -->
+        <div class="flex justify-between pt-1">
+          <Button>
+            <template #icon
+              ><Icon class="h-10 w-10" :icon="bellOff" :horizontalFlip="true"
+            /></template>
+          </Button>
+
+          <Button>
+            <template #icon>
+              <Icon
+                class="h-10 w-10"
+                :icon="listOutline"
+                :horizontalFlip="true"
+              />
+            </template>
+          </Button>
+        </div>
       </div>
     </template>
   </f-dropdown>
@@ -403,6 +420,8 @@ import { Dropdown as FDropdown } from "floating-vue";
 import { Icon } from "@iconify/vue";
 import notificationsIcon from "@iconify-icons/material-symbols/notifications";
 import checkboxMarked from "@iconify-icons/mdi/checkbox-marked";
+import listOutline from "@iconify-icons/solar/list-outline";
+import bellOff from "@iconify-icons/mdi/bell-off";
 import Badge from "primevue/badge";
 import Button from "primevue/button";
 </script>
