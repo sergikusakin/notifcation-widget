@@ -1,9 +1,4 @@
 <template>
-  <br />
-  <br />
-  <br />
-  <br />
-
   <f-dropdown :distance="1" placement="right-end" style="display: inline-flex">
     <!-- This will be the popover reference (for the events and position) -->
 
@@ -20,399 +15,74 @@
 
     <template #popper>
       <!-- You can put other components too -->
-      <div class="p-2">
-        <!-- <ScrollPanel class="w-auto h-2/5"> -->
-        <ScrollPanel style="width: 100%; height: 48rem">
-          <div class="pt-1 border-b-2 border-blue-900">
-            <!-- text and avatar of notification -->
-            <div class="flex p-2 h-auto w-auto">
-              <div class="rounded-full w-10 h-10 bg-yellow-500"></div>
-              <div class="pl-3">
-                <p class="text-xs text-gray-400">15/12/2023 18:16</p>
-                <p class="h-auto w-64 text-sm">
-                  Nofitication description and some additional information...
-                </p>
-              </div>
-            </div>
-            <!-- btns actions -->
-            <div class="p-2 h-12 flex justify-between">
-              <div class="flex justify-center">
-                <Button
-                  class="bg-sky-300 p-1 mr-3 text-sm"
-                  type="button"
-                  label="Action"
-                  severity="info"
-                />
-                <Button
-                  class="bg-violet-400 p-1 text-sm"
-                  type="button"
-                  label="Another action"
-                  severity="help"
-                />
-              </div>
-
-              <div class="flex justify-end">
-                <Button>
-                  <template #icon>
-                    <Icon class="h-10 w-10" :icon="checkboxMarked" />
-                  </template>
-                </Button>
-              </div>
+      <ScrollPanel
+        :style="{ height: widgetHeight, width: '100%' }"
+        class="transition-all duration-500"
+      >
+        <div
+          v-for="item in notifications"
+          :ref="(el) => addNotificationElement(el as Element)"
+          class="pt-1 border-b border-slate-400 w-[350px]"
+        >
+          <!-- text and avatar of notification -->
+          <div class="flex p-2">
+            <div class="rounded-full w-10 h-10 bg-yellow-300"></div>
+            <div class="pl-3">
+              <p class="text-xs text-gray-400">15/12/2023 18:16</p>
+              <p class="h-auto w-64 text-sm">
+                Nofitication description and some additional information...
+              </p>
             </div>
           </div>
-          <div class="pt-1 border-b-2 border-blue-900">
-            <!-- text and avatar of notification -->
-            <div class="flex p-2 h-auto w-auto">
-              <div class="rounded-full w-10 h-10 bg-yellow-500"></div>
-              <div class="pl-3">
-                <p class="text-xs text-gray-400">15/12/2023 18:16</p>
-                <p class="h-auto w-64 text-sm">
-                  Nofitication description and some additional information...
-                </p>
-              </div>
-            </div>
-            <!-- btns actions -->
-            <div class="p-2 h-12 flex justify-between">
-              <div class="flex justify-center">
-                <Button
-                  class="bg-sky-300 p-1 mr-3 text-sm"
-                  type="button"
-                  label="Action"
-                  severity="info"
-                />
-                <Button
-                  class="bg-violet-400 p-1 text-sm"
-                  type="button"
-                  label="Another action"
-                  severity="help"
-                />
-              </div>
-
-              <div class="flex justify-end">
-                <Button>
-                  <template #icon>
-                    <Icon class="h-10 w-10" :icon="checkboxMarked" />
-                  </template>
-                </Button>
-              </div>
-            </div>
-          </div>
-          <div class="pt-1 border-b-2 border-blue-900">
-            <!-- text and avatar of notification -->
-            <div class="flex p-2 h-auto w-auto">
-              <div class="rounded-full w-10 h-10 bg-yellow-500"></div>
-              <div class="pl-3">
-                <p class="text-xs text-gray-400">15/12/2023 18:16</p>
-                <p class="h-auto w-64 text-sm">
-                  Nofitication description and some additional information...
-                </p>
-              </div>
-            </div>
-            <!-- btns actions -->
-            <div class="p-2 h-12 flex justify-between">
-              <div class="flex justify-center">
-                <Button
-                  class="bg-sky-300 p-1 mr-3 text-sm"
-                  type="button"
-                  label="Action"
-                  severity="info"
-                />
-                <Button
-                  class="bg-violet-400 p-1 text-sm"
-                  type="button"
-                  label="Another action"
-                  severity="help"
-                />
-              </div>
-
-              <div class="flex justify-end">
-                <Button>
-                  <template #icon>
-                    <Icon class="h-10 w-10" :icon="checkboxMarked" />
-                  </template>
-                </Button>
-              </div>
-            </div>
-          </div>
-          <div class="pt-1 border-b-2 border-blue-900">
-            <!-- text and avatar of notification -->
-            <div class="flex p-2 h-auto w-auto">
-              <div class="rounded-full w-10 h-10 bg-yellow-500"></div>
-              <div class="pl-3">
-                <p class="text-xs text-gray-400">15/12/2023 18:16</p>
-                <p class="h-auto w-64 text-sm">
-                  Nofitication description and some additional information...
-                </p>
-              </div>
-            </div>
-            <!-- btns actions -->
-            <div class="p-2 h-12 flex justify-between">
-              <div class="flex justify-center">
-                <Button
-                  class="bg-sky-300 p-1 mr-3 text-sm"
-                  type="button"
-                  label="Action"
-                  severity="info"
-                />
-                <Button
-                  class="bg-violet-400 p-1 text-sm"
-                  type="button"
-                  label="Another action"
-                  severity="help"
-                />
-              </div>
-
-              <div class="flex justify-end">
-                <Button>
-                  <template #icon>
-                    <Icon class="h-10 w-10" :icon="checkboxMarked" />
-                  </template>
-                </Button>
-              </div>
-            </div>
-          </div>
-          <div class="pt-1 border-b-2 border-blue-900">
-            <!-- text and avatar of notification -->
-            <div class="flex p-2 h-auto w-auto">
-              <div class="rounded-full w-10 h-10 bg-yellow-500"></div>
-              <div class="pl-3">
-                <p class="text-xs text-gray-400">15/12/2023 18:16</p>
-                <p class="h-auto w-64 text-sm">
-                  Nofitication description and some additional information...
-                </p>
-              </div>
-            </div>
-            <!-- btns actions -->
-            <div class="p-2 h-12 flex justify-between">
-              <div class="flex justify-center">
-                <Button
-                  class="bg-sky-300 p-1 mr-3 text-sm"
-                  type="button"
-                  label="Action"
-                  severity="info"
-                />
-                <Button
-                  class="bg-violet-400 p-1 text-sm"
-                  type="button"
-                  label="Another action"
-                  severity="help"
-                />
-              </div>
-
-              <div class="flex justify-end">
-                <Button>
-                  <template #icon>
-                    <Icon class="h-10 w-10" :icon="checkboxMarked" />
-                  </template>
-                </Button>
-              </div>
-            </div>
-          </div>
-          <div class="pt-1 border-b-2 border-blue-900">
-            <!-- text and avatar of notification -->
-            <div class="flex p-2 h-auto w-auto">
-              <div class="rounded-full w-10 h-10 bg-yellow-500"></div>
-              <div class="pl-3">
-                <p class="text-xs text-gray-400">15/12/2023 18:16</p>
-                <p class="h-auto w-64 text-sm">
-                  Nofitication description and some additional information...
-                </p>
-              </div>
-            </div>
-            <!-- btns actions -->
-            <div class="p-2 h-12 flex justify-between">
-              <div class="flex justify-center">
-                <Button
-                  class="bg-sky-300 p-1 mr-3 text-sm"
-                  type="button"
-                  label="Action"
-                  severity="info"
-                />
-                <Button
-                  class="bg-violet-400 p-1 text-sm"
-                  type="button"
-                  label="Another action"
-                  severity="help"
-                />
-              </div>
-
-              <div class="flex justify-end">
-                <Button>
-                  <template #icon>
-                    <Icon class="h-10 w-10" :icon="checkboxMarked" />
-                  </template>
-                </Button>
-              </div>
-            </div>
-          </div>
-          <div class="pt-1 border-b-2 border-blue-900">
-            <!-- text and avatar of notification -->
-            <div class="flex p-2 h-auto w-auto">
-              <div class="rounded-full w-10 h-10 bg-yellow-500"></div>
-              <div class="pl-3">
-                <p class="text-xs text-gray-400">15/12/2023 18:16</p>
-                <p class="h-auto w-64 text-sm">
-                  Nofitication description and some additional information...
-                </p>
-              </div>
-            </div>
-            <!-- btns actions -->
-            <div class="p-2 h-12 flex justify-between">
-              <div class="flex justify-center">
-                <Button
-                  class="bg-sky-300 p-1 mr-3 text-sm"
-                  type="button"
-                  label="Action"
-                  severity="info"
-                />
-                <Button
-                  class="bg-violet-400 p-1 text-sm"
-                  type="button"
-                  label="Another action"
-                  severity="help"
-                />
-              </div>
-
-              <div class="flex justify-end">
-                <Button>
-                  <template #icon>
-                    <Icon class="h-10 w-10" :icon="checkboxMarked" />
-                  </template>
-                </Button>
-              </div>
-            </div>
-          </div>
-          <div class="pt-1 border-b-2 border-blue-900">
-            <!-- text and avatar of notification -->
-            <div class="flex p-2 h-auto w-auto">
-              <div class="rounded-full w-10 h-10 bg-yellow-500"></div>
-              <div class="pl-3">
-                <p class="text-xs text-gray-400">15/12/2023 18:16</p>
-                <p class="h-auto w-64 text-sm">
-                  Nofitication description and some additional information...
-                </p>
-              </div>
-            </div>
-            <!-- btns actions -->
-            <div class="p-2 h-12 flex justify-between">
-              <div class="flex justify-center">
-                <Button
-                  class="bg-sky-300 p-1 mr-3 text-sm"
-                  type="button"
-                  label="Action"
-                  severity="info"
-                />
-                <Button
-                  class="bg-violet-400 p-1 text-sm"
-                  type="button"
-                  label="Another action"
-                  severity="help"
-                />
-              </div>
-
-              <div class="flex justify-end">
-                <Button>
-                  <template #icon>
-                    <Icon class="h-10 w-10" :icon="checkboxMarked" />
-                  </template>
-                </Button>
-              </div>
-            </div>
-          </div>
-          <div class="pt-1 border-b-2 border-blue-900">
-            <!-- text and avatar of notification -->
-            <div class="flex p-2 h-auto w-auto">
-              <div class="rounded-full w-10 h-10 bg-yellow-500"></div>
-              <div class="pl-3">
-                <p class="text-xs text-gray-400">15/12/2023 18:16</p>
-                <p class="h-auto w-64 text-sm">
-                  Nofitication description and some additional information...
-                </p>
-              </div>
-            </div>
-            <!-- btns actions -->
-            <div class="p-2 h-12 flex justify-between">
-              <div class="flex justify-center">
-                <Button
-                  class="bg-sky-300 p-1 mr-3 text-sm"
-                  type="button"
-                  label="Action"
-                  severity="info"
-                />
-                <Button
-                  class="bg-violet-400 p-1 text-sm"
-                  type="button"
-                  label="Another action"
-                  severity="help"
-                />
-              </div>
-
-              <div class="flex justify-end">
-                <Button>
-                  <template #icon>
-                    <Icon class="h-10 w-10" :icon="checkboxMarked" />
-                  </template>
-                </Button>
-              </div>
-            </div>
-          </div>
-          <div class="pt-1 border-b-2 border-blue-900">
-            <!-- text and avatar of notification -->
-            <div class="flex p-2 h-auto w-auto">
-              <div class="rounded-full w-10 h-10 bg-yellow-500"></div>
-              <div class="pl-3">
-                <p class="text-xs text-gray-400">15/12/2023 18:16</p>
-                <p class="h-auto w-64 text-sm">
-                  Nofitication description and some additional information...
-                </p>
-              </div>
-            </div>
-            <!-- btns actions -->
-            <div class="p-2 h-12 flex justify-between">
-              <div class="flex justify-center">
-                <Button
-                  class="bg-sky-300 p-1 mr-3 text-sm"
-                  type="button"
-                  label="Action"
-                  severity="info"
-                />
-                <Button
-                  class="bg-violet-400 p-1 text-sm"
-                  type="button"
-                  label="Another action"
-                  severity="help"
-                />
-              </div>
-
-              <div class="flex justify-end">
-                <Button>
-                  <template #icon>
-                    <Icon class="h-10 w-10" :icon="checkboxMarked" />
-                  </template>
-                </Button>
-              </div>
-            </div>
-          </div>
-        </ScrollPanel>
-
-        <!-- control -->
-        <div class="flex justify-between pt-1">
-          <Button>
-            <template #icon
-              ><Icon class="h-10 w-10" :icon="bellOff" :horizontalFlip="true"
-            /></template>
-          </Button>
-
-          <Button>
-            <template #icon>
-              <Icon
-                class="h-10 w-10"
-                :icon="listOutline"
-                :horizontalFlip="true"
+          <!-- btns actions -->
+          <div class="p-2 h-12 flex justify-between">
+            <div class="flex gap-2 justify-center">
+              <Button
+                size="small"
+                outlined
+                class="p-1 text-xs"
+                type="button"
+                label="Action"
+                severity="info"
               />
-            </template>
-          </Button>
+              <Button
+                size="small"
+                outlined
+                class="p-1 text-xs"
+                type="button"
+                label="Another action"
+                severity="help"
+              />
+            </div>
+
+            <div class="flex justify-end">
+              <Button>
+                <template #icon>
+                  <Icon class="h-10 w-10" :icon="checkboxMarked" />
+                </template>
+              </Button>
+            </div>
+          </div>
         </div>
+      </ScrollPanel>
+
+      <!-- control -->
+      <div class="flex justify-between p-1 bg-yellow-500 w-[350px]">
+        <Button>
+          <template #icon>
+            <Icon class="h-10 w-10" :icon="bellOff" :horizontalFlip="true" />
+          </template>
+        </Button>
+
+        <Button>
+          <template #icon>
+            <Icon
+              class="h-10 w-10"
+              :icon="listOutline"
+              :horizontalFlip="true"
+            />
+          </template>
+        </Button>
       </div>
     </template>
   </f-dropdown>
@@ -428,6 +98,49 @@ import bellOff from "@iconify-icons/mdi/bell-off";
 import Badge from "primevue/badge";
 import Button from "primevue/button";
 import ScrollPanel from "primevue/scrollpanel";
+import {
+  computed,
+  onBeforeUpdate,
+  ref,
+  watch,
+  type VNodeRef,
+  onUpdated,
+  onMounted,
+  reactive,
+  onBeforeUnmount,
+} from "vue";
+
+let notificationElements: Set<Element> = reactive(new Set<Element>());
+const addNotificationElement = (el: Element | null) => {
+  if (el) {
+    notificationElements.add(el);
+  }
+};
+
+const notifications = reactive<string[]>(Array(6));
+watch([notifications], () => {
+  notificationElements.clear();
+});
+
+const widgetHeight = ref<string>("0px");
+watch(
+  [notifications, notificationElements],
+  () => {
+    const totalHeight = [...notificationElements.values()]
+      .map((el) => el.getBoundingClientRect().height)
+      .reduce((prev, curr) => prev + curr, 0);
+
+    widgetHeight.value = totalHeight > 600 ? "600px" : `${totalHeight}px`;
+
+    console.log(notificationElements);
+  },
+  { deep: true, immediate: true }
+);
+
+// const interval = setInterval(() => notifications.pop(), 3000);
+// onBeforeUnmount(() => {
+//   clearInterval(interval);
+// });
 </script>
 
 <style scoped>
