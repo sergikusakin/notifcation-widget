@@ -11,6 +11,7 @@
         style="width: 100%; height: 500px"
         class="transition-all duration-500"
       >
+        <!-- organization info -->
         <div class="inline">
           <div
             v-for="item in Array(13)"
@@ -25,6 +26,7 @@
           </div>
         </div>
       </ScrollPanel>
+      <!-- button for add -->
       <div class="flex justify-center">
         <Button
           class="flex justify-center w-60 m-1 p-2 border-2 border-gray-400 rounded"
