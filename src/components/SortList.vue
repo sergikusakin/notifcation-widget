@@ -1,11 +1,11 @@
 <template>
   <f-dropdown
-    :distance="6"
+    :distance="1"
     placements="right-start"
     style="display: inline-flex"
   >
     <!-- This will be the popover reference (for the events and position) -->
-    <button class="border-4">
+    <button>
       <div class="m-1 rounded-full w-10 h-10 bg-red-600"></div>
     </button>
 
@@ -30,7 +30,7 @@
           <InputText
             class="h-10 w-[246px]"
             v-model="value1"
-            placeholder=" Search..."
+            placeholder="Search..."
           />
         </div>
 
