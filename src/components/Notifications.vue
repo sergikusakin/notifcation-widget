@@ -2,20 +2,20 @@
   <f-dropdown :distance="1" placement="right-end" style="display: inline-flex">
     <!-- This will be the popover reference (for the events and position) -->
 
-    <Button
+    <pv-button
       aria-label="Notifications"
       class="flex justify-center"
       style="overflow: unset"
     >
       <div class="p-overlay-badge">
-        <Badge value="2" severity="danger" />
-        <Icon class="h-10 w-10" :icon="notificationsIcon" />
+        <pv-badge value="2" severity="danger" />
+        <IIcon class="h-10 w-10" :icon="notificationsIcon" />
       </div>
-    </Button>
+    </pv-button>
 
     <template #popper>
       <!-- You can put other components too -->
-      <ScrollPanel
+      <pv-scroll-panel
         :style="{ height: widgetHeight, width: '350px' }"
         class="transition-all duration-500"
       >
@@ -37,7 +37,7 @@
           <!-- btns actions -->
           <div class="p-2 h-12 flex justify-between">
             <div class="flex gap-2 justify-center">
-              <Button
+              <pv-button
                 size="small"
                 outlined
                 class="p-1 text-xs"
@@ -45,7 +45,7 @@
                 label="Action"
                 severity="info"
               />
-              <Button
+              <pv-button
                 size="small"
                 outlined
                 class="p-1 text-xs"
@@ -56,33 +56,33 @@
             </div>
 
             <div class="flex justify-end">
-              <Button>
+              <pv-button>
                 <template #icon>
-                  <Icon class="h-10 w-10" :icon="checkboxMarked" />
+                  <IIcon class="h-10 w-10" :icon="checkboxMarked" />
                 </template>
-              </Button>
+              </pv-button>
             </div>
           </div>
         </div>
-      </ScrollPanel>
+      </pv-scroll-panel>
 
       <!-- control -->
       <div class="flex justify-between p-1 bg-yellow-500 w-[350px]">
-        <Button>
+        <pv-button>
           <template #icon>
-            <Icon class="h-10 w-10" :icon="bellOff" :horizontalFlip="true" />
+            <IIcon class="h-10 w-10" :icon="bellOff" :horizontalFlip="true" />
           </template>
-        </Button>
+        </pv-button>
 
-        <Button>
+        <pv-button>
           <template #icon>
-            <Icon
+            <IIcon
               class="h-10 w-10"
               :icon="listOutline"
               :horizontalFlip="true"
             />
           </template>
-        </Button>
+        </pv-button>
       </div>
     </template>
   </f-dropdown>
@@ -90,14 +90,14 @@
 
 <script setup lang="ts">
 import { Dropdown as FDropdown } from "floating-vue";
-import { Icon } from "@iconify/vue";
+import { Icon as IIcon } from "@iconify/vue";
 import notificationsIcon from "@iconify-icons/material-symbols/notifications";
 import checkboxMarked from "@iconify-icons/mdi/checkbox-marked";
 import listOutline from "@iconify-icons/solar/list-outline";
 import bellOff from "@iconify-icons/mdi/bell-off";
-import Badge from "primevue/badge";
-import Button from "primevue/button";
-import ScrollPanel from "primevue/scrollpanel";
+import PvBadge from "primevue/badge";
+import PvButton from "primevue/button";
+import PvScrollPanel from "primevue/scrollpanel";
 import {
   computed,
   onBeforeUpdate,
@@ -117,7 +117,7 @@ const addNotificationElement = (el: Element | null) => {
   }
 };
 
-const notifications = reactive<string[]>(Array(6));
+const notifications = reactive<string[]>(Array(12));
 watch([notifications], () => {
   notificationElements.clear();
 });
