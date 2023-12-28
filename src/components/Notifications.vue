@@ -1,17 +1,19 @@
 <template>
-  <f-dropdown :distance="1" placement="right-end" style="display: inline-flex">
+  <f-dropdown :distance="1" placement="right-end" class="w-full">
     <!-- This will be the popover reference (for the events and position) -->
 
-    <pv-button
-      aria-label="Notifications"
-      class="flex justify-center"
-      style="overflow: unset"
-    >
-      <div class="p-overlay-badge">
-        <pv-badge value="2" severity="danger" />
-        <IIcon class="h-10 w-10" :icon="notificationsIcon" />
-      </div>
-    </pv-button>
+    <div class="p-overlay-badge w-full">
+      <pv-button
+        severity="danger"
+        aria-label="Notifications"
+        class="flex justify-center w-full"
+      >
+        <template #icon>
+          <i-icon class="h-8 w-8" :icon="notificationsIcon" />
+        </template>
+      </pv-button>
+      <pv-badge value="2" severity="danger" />
+    </div>
 
     <template #popper>
       <!-- You can put other components too -->
@@ -58,7 +60,7 @@
             <div class="flex justify-end">
               <pv-button>
                 <template #icon>
-                  <IIcon class="h-10 w-10" :icon="checkboxMarked" />
+                  <i-icon class="h-8 w-8" :icon="checkAll" />
                 </template>
               </pv-button>
             </div>
@@ -70,13 +72,13 @@
       <div class="flex justify-between p-1 bg-yellow-500 w-[350px]">
         <pv-button>
           <template #icon>
-            <IIcon class="h-10 w-10" :icon="bellOff" :horizontalFlip="true" />
+            <i-icon class="h-10 w-10" :icon="bellOff" :horizontalFlip="true" />
           </template>
         </pv-button>
 
         <pv-button>
           <template #icon>
-            <IIcon
+            <i-icon
               class="h-10 w-10"
               :icon="listOutline"
               :horizontalFlip="true"
@@ -92,23 +94,13 @@
 import { Dropdown as FDropdown } from "floating-vue";
 import { Icon as IIcon } from "@iconify/vue";
 import notificationsIcon from "@iconify-icons/material-symbols/notifications";
-import checkboxMarked from "@iconify-icons/mdi/checkbox-marked";
+import checkAll from "@iconify-icons/codicon/check-all";
 import listOutline from "@iconify-icons/solar/list-outline";
 import bellOff from "@iconify-icons/mdi/bell-off";
 import PvBadge from "primevue/badge";
 import PvButton from "primevue/button";
 import PvScrollPanel from "primevue/scrollpanel";
-import {
-  computed,
-  onBeforeUpdate,
-  ref,
-  watch,
-  type VNodeRef,
-  onUpdated,
-  onMounted,
-  reactive,
-  onBeforeUnmount,
-} from "vue";
+import { ref, watch, reactive } from "vue";
 
 let notificationElements: Set<Element> = reactive(new Set<Element>());
 const addNotificationElement = (el: Element | null) => {
@@ -131,8 +123,6 @@ watch(
       .reduce((prev, curr) => prev + curr, 0);
 
     widgetHeight.value = totalHeight > 600 ? "600px" : `${totalHeight}px`;
-
-    console.log(notificationElements);
   },
   { deep: true, immediate: true }
 );
