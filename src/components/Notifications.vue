@@ -60,7 +60,7 @@
             <div class="flex justify-end">
               <pv-button>
                 <template #icon>
-                  <i-icon class="h-8 w-8" :icon="checkAll" />
+                  <i-icon class="h-6 w-6" :icon="checkAll" />
                 </template>
               </pv-button>
             </div>
