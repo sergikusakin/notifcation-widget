@@ -6,11 +6,17 @@
   >
     <!-- This will be the popover reference (for the events and position) -->
     <pv-button class="flex justify-center">
-      <div class="m-1 rounded-full w-10 h-10 bg-red-600"></div>
+      <img
+        class="flex rounded-full h-10 w-10 object-contain"
+        src="../assets/img/KUSAKINS-favicon.png"
+        alt="#"
+      />
+      <!-- <div class="m-1 rounded-full w-10 h-10 bg-red-600"></div> -->
     </pv-button>
 
     <!-- This will be the content of the popover -->
     <template #popper>
+      <!-- search -->
       <div class="relative h-12 p-1 border-b border-b-gray-300">
         <i-icon
           class="flex ml-2 items-center justify-center absolute left-1 top-1/2 -translate-y-1/2 pointer-events-none"
@@ -26,30 +32,30 @@
         style="width: 100%; height: 500px"
         class="transition-all duration-500"
       >
-        <!-- search -->
-
         <!-- organization info -->
         <div class="inline">
           <div
             v-for="item in Array(13)"
-            class="cursor-pointer m-1 p-2 border border-gray-400 rounded flex gap-2 justify-start items-center"
+            class="cursor-pointer m-1 p-2 border border-gray-400 rounded flex justify-start items-center"
           >
-            <div
-              class="rounded-md bg-emerald-500 text-neutral-50 h-10 w-10 flex justify-center items-center text-sm"
-            >
-              #
-            </div>
-            <div class="text-sm">Organization name</div>
+            <pv-button class="gap-2">
+              <img
+                class="flex rounded-full h-10 w-10 object-contain"
+                src="../assets/img/KUSAKINS-favicon.png"
+                alt="#"
+              />
+              <div class="text-sm">Organization name</div>
+            </pv-button>
           </div>
         </div>
       </pv-scroll-panel>
+
       <!-- button for add -->
-      <div class="flex justify-center">
-        <pv-button
-          class="flex justify-center w-[300px] m-1 p-2 border border-gray-400 rounded text-sm"
-          >+ Organization
-        </pv-button>
-      </div>
+
+      <pv-button
+        class="flex justify-center h-12 w-[300px] bg-blue-100 rounded-none border-gray-400 text-sm"
+        >+ Organization
+      </pv-button>
     </template>
   </f-dropdown>
 </template>
