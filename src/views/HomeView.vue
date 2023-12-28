@@ -1,5 +1,5 @@
 <template>
-  <div><SortList /></div>
+  <div class="flex items-center h-screen"><SortList /></div>
   <div class="flex items-end h-screen pb-10">
     <Notifications />
   </div>
@@ -7,7 +7,7 @@
 
 <script setup lang="ts">
 import Notifications from "../components/Notifications.vue";
-import SortList from "@/components/SortList.vue";
+import SortList from "../components/SortList.vue";
 </script>
 
 <style scoped></style>
