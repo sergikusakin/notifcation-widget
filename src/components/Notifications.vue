@@ -16,7 +16,7 @@
     <template #popper>
       <!-- You can put other components too -->
       <ScrollPanel
-        :style="{ height: widgetHeight, width: '100%' }"
+        :style="{ height: widgetHeight, width: '350px' }"
         class="transition-all duration-500"
       >
         <div
