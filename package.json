@@ -15,7 +15,7 @@
     "@vueuse/core": "^10.7.1",
     "floating-vue": "^2.0.0-beta.24",
     "primevue": "^3.45.0",
-    "vue": "^3.3.11",
+    "vue": "^3.4.5",
     "vue-router": "^4.2.5"
   },
   "devDependencies": {
