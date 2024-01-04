@@ -3,16 +3,20 @@
     :distance="1"
     placement="right-start"
     style="display: inline-flex"
+    :disabled="sm"
   >
     <!-- This will be the popover reference (for the events and position) -->
-    <pv-button class="flex justify-center">
+    <pv-button class="flex justify-center" @click="toggleFullscreen">
       <img
         class="flex rounded-full h-10 w-10 object-contain"
         src="../assets/img/KUSAKINS-favicon.png"
         alt="#"
       />
-      <!-- <div class="m-1 rounded-full w-10 h-10 bg-red-600"></div> -->
     </pv-button>
+
+    <pv-sidebar v-model:visible="visible" header="Sidebar" position="full">
+      <p>Lorem</p>
+    </pv-sidebar>
 
     <!-- This will be the content of the popover -->
     <template #popper>
@@ -58,6 +62,17 @@
       </pv-button>
     </template>
   </f-dropdown>
+
+  <!-- <div class="font-mono">
+    <div>Current breakpoints: {{ current }}</div>
+    <div>xs(&lt;{{ smWidth }}px): <BooleanDisplay :value="xs" /></div>
+    <div>xs(&lt;={{ smWidth }}px): <BooleanDisplay :value="xse" /></div>
+    <div>sm: <BooleanDisplay :value="sm" /></div>
+    <div>md: <BooleanDisplay :value="md" /></div>
+    <div>lg: <BooleanDisplay :value="lg" /></div>
+    <div>xl: <BooleanDisplay :value="xl" /></div>
+    <div>2xl: <BooleanDisplay :value="xxl" /></div>
+  </div> -->
 </template>
 
 <script setup lang="ts">
@@ -67,9 +82,29 @@ import { Icon as IIcon } from "@iconify/vue";
 import searchLine from "@iconify-icons/clarity/search-line";
 import PvScrollPanel from "primevue/scrollpanel";
 import PvButton from "primevue/button";
-import { ref } from "vue";
+import PvSidebar from "primevue/sidebar";
+
+import { computed, ref, watch } from "vue";
+
+const visible = ref(false);
 
 const value1 = ref();
+
+import { breakpointsTailwind, useBreakpoints } from "@vueuse/core";
+
+const breakpoints = useBreakpoints(breakpointsTailwind);
+const sm = breakpoints.smallerOrEqual("sm");
+watch(sm, (val) => {
+  if (val === false) {
+    visible.value = false;
+  }
+});
+
+const toggleFullscreen = () => {
+  if (sm.value) {
+    visible.value = true;
+  }
+};
 </script>
 
 <style scoped></style>
