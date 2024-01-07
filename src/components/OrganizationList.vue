@@ -24,7 +24,7 @@
           v-for="item in organizations"
           class="cursor-pointer border-b p-2 border-gray-300 flex justify-start items-center hover:bg-gray-100"
         >
-          <pv-button class="flex gap-2">
+          <pv-button class="flex gap-2" @click="$emit('select', item)">
             <img
               v-if="item.imageUrl !== undefined"
               class="flex rounded-full h-10 w-10 object-contain"
@@ -78,5 +78,6 @@ const props = defineProps<{
 
 const emit = defineEmits<{
   create: [];
+  select: [item: OrganizationOption];
 }>();
 </script>

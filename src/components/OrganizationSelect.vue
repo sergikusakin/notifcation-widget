@@ -24,6 +24,7 @@
         v-model:search="searchKeywords"
         @create="handleCreate"
         :organizations="organizations"
+        @select="handleSelect"
       />
     </pv-sidebar>
 
@@ -33,6 +34,7 @@
         v-model:search="searchKeywords"
         @create="handleCreate"
         :organizations="organizations"
+        @select="handleSelect"
       />
     </template>
   </f-dropdown>
@@ -54,6 +56,7 @@ import { computed, ref, watch } from "vue";
 const visible = ref(false);
 
 import { breakpointsTailwind, useBreakpoints } from "@vueuse/core";
+import { isTemplateExpression } from "typescript";
 
 const breakpoints = useBreakpoints(breakpointsTailwind);
 const sm = breakpoints.smallerOrEqual("sm");
@@ -91,6 +94,8 @@ const handleCreate = () => {
 
 // #endregion Create
 
+//#region Content
+
 const organizations = ref<OrganizationOption[]>([
   {
     id: "1",
@@ -102,6 +107,16 @@ const organizations = ref<OrganizationOption[]>([
     imageUrl: "/images/KUSAKINS-favicon.png",
   },
 ]);
+
+//#endregion Content
+
+//#region Select
+
+const handleSelect = (option: OrganizationOption) => {
+  alert("This is " + option.name + " ID " + option.id);
+};
+
+//#endregion Select
 </script>
 
 <style>
