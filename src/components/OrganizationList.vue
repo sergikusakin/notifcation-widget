@@ -21,16 +21,24 @@
 
       <div class="flex flex-col">
         <div
-          v-for="item in Array(13)"
+          v-for="item in organizations"
           class="cursor-pointer border-b p-2 border-gray-300 flex justify-start items-center hover:bg-gray-100"
         >
           <pv-button class="flex gap-2">
             <img
+              v-if="item.imageUrl !== undefined"
               class="flex rounded-full h-10 w-10 object-contain"
-              src="../assets/img/KUSAKINS-favicon.png"
+              :src="item.imageUrl"
               alt="#"
             />
-            <div class="text-sm">Organization name</div>
+            <img
+              v-else
+              class="flex rounded-full h-10 w-10 object-contain"
+              :src="orgImg"
+              alt="#"
+            />
+
+            <div class="text-sm">{{ item.name }}</div>
           </pv-button>
         </div>
       </div>
@@ -59,20 +67,16 @@ import PvButton from "primevue/button";
 import PvInputText from "primevue/inputtext";
 import { Icon as IIcon } from "@iconify/vue";
 import searchLine from "@iconify-icons/clarity/search-line";
+import orgImg from "@/assets/img/org.png";
 import PvScrollPanel from "primevue/scrollpanel";
-import { ref } from "vue";
 
 const search = defineModel<string>("search");
+
+const props = defineProps<{
+  organizations: OrganizationOption[];
+}>();
 
 const emit = defineEmits<{
   create: [];
 }>();
-
-// const props = defineProps<{
-//   search: string;
-// }>();
-
-// const emits = defineEmits<{
-//   "update:search": [val: string];
-// }>();
 </script>
