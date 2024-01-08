@@ -23,7 +23,7 @@
       <OrganizationList
         v-model:search="searchKeywords"
         @create="handleCreate"
-        :organizations="organizations"
+        :organizations="filterOrganization"
         @select="handleSelect"
       />
     </pv-sidebar>
@@ -33,7 +33,7 @@
       <OrganizationList
         v-model:search="searchKeywords"
         @create="handleCreate"
-        :organizations="organizations"
+        :organizations="filterOrganization"
         @select="handleSelect"
       />
     </template>
@@ -56,7 +56,6 @@ import { computed, ref, watch } from "vue";
 const visible = ref(false);
 
 import { breakpointsTailwind, useBreakpoints } from "@vueuse/core";
-import { isTemplateExpression } from "typescript";
 
 const breakpoints = useBreakpoints(breakpointsTailwind);
 const sm = breakpoints.smallerOrEqual("sm");
@@ -74,26 +73,6 @@ const toggleFullscreen = () => {
 
 // #endregion Layout
 
-// #region Search
-
-const searchKeywords = ref("Banana");
-
-const handleSearch = () => {
-  console.log(`search by keywords: ${searchKeywords.value}`);
-};
-
-watch(searchKeywords, handleSearch);
-
-// #endregion Search
-
-// #region Create
-
-const handleCreate = () => {
-  console.log("create organization");
-};
-
-// #endregion Create
-
 //#region Content
 
 const organizations = ref<OrganizationOption[]>([
@@ -110,6 +89,14 @@ const organizations = ref<OrganizationOption[]>([
 
 //#endregion Content
 
+// #region Create
+
+const handleCreate = () => {
+  console.log("create organization");
+};
+
+// #endregion Create
+
 //#region Select
 
 const handleSelect = (option: OrganizationOption) => {
@@ -117,6 +104,22 @@ const handleSelect = (option: OrganizationOption) => {
 };
 
 //#endregion Select
+
+// #region Search
+
+const searchKeywords = ref("");
+
+// const handleSearch = () => {
+//   console.log(`search by keywords: ${searchKeywords.value}`);
+// };
+
+// watch(searchKeywords, handleSearch);
+
+const filterOrganization = computed(() => {
+  return organizations.value.filter((organization) =>
+    organization.name.includes(searchKeywords.value)
+  );
+});
 </script>
 
 <style>
