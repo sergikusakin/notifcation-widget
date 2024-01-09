@@ -120,6 +120,8 @@ const filterOrganization = computed(() => {
     organization.name.includes(searchKeywords.value)
   );
 });
+
+//#endregion Search
 </script>
 
 <style>
