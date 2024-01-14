@@ -14,14 +14,19 @@
     </div>
     <!-- scroll panel -->
     <pv-scroll-panel
-      style="width: 100%; height: 500px"
+      :items="organizations"
+      :style="{ height: widgetHeight, width: '100%' }"
       class="transition-all duration-500"
     >
       <!-- organization info -->
+      <template #element="item">
+        <div>{{ item.name }}</div>
+      </template>
 
       <div class="flex flex-col">
         <div
           v-for="item in organizations"
+          :ref="(el) => addNotificationElement(el as Element)"
           class="cursor-pointer border-b p-2 border-gray-300 flex justify-start items-center hover:bg-gray-100"
         >
           <pv-button class="flex gap-2" @click="$emit('select', item)">
@@ -69,6 +74,7 @@ import { Icon as IIcon } from "@iconify/vue";
 import searchLine from "@iconify-icons/clarity/search-line";
 import orgImg from "@/assets/img/org.png";
 import PvScrollPanel from "primevue/scrollpanel";
+import { reactive, watch, computed } from "vue";
 
 const search = defineModel<string>("search");
 
@@ -80,4 +86,27 @@ const emit = defineEmits<{
   create: [];
   select: [item: OrganizationOption];
 }>();
+
+//#region Heigth Widget
+
+let notificationElements: Set<Element> = reactive(new Set<Element>());
+const addNotificationElement = (el: Element | null) => {
+  if (el) {
+    notificationElements.add(el);
+  }
+};
+
+watch([props], () => {
+  notificationElements.clear();
+});
+
+const widgetHeight = computed(() => {
+  const totalHeight = [...notificationElements.values()]
+    .map((el) => el.getBoundingClientRect().height)
+    .reduce((prev, curr) => prev + curr, 0);
+
+  return totalHeight > 600 ? "600px" : `${totalHeight}px`;
+});
+
+//#endregion Heigth Widget
 </script>
