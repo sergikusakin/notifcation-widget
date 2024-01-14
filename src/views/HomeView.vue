@@ -6,7 +6,7 @@
       <OrganizationSelect />
     </div>
     <div class="flex flex-col justify-center items-center gap-2 w-full">
-      <Notifications />
+      <Notifications :notifications="Array(12).fill('banana')" />
     </div>
   </div>
 </template>

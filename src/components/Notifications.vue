@@ -100,7 +100,11 @@ import bellOff from "@iconify-icons/mdi/bell-off";
 import PvBadge from "primevue/badge";
 import PvButton from "primevue/button";
 import PvScrollPanel from "primevue/scrollpanel";
-import { ref, watch, reactive } from "vue";
+import { ref, watch, reactive, computed } from "vue";
+
+const props = defineProps<{
+  notifications: unknown[];
+}>();
 
 let notificationElements: Set<Element> = reactive(new Set<Element>());
 const addNotificationElement = (el: Element | null) => {
@@ -109,23 +113,17 @@ const addNotificationElement = (el: Element | null) => {
   }
 };
 
-const notifications = reactive<string[]>(Array(12));
-watch([notifications], () => {
+watch([props], () => {
   notificationElements.clear();
 });
 
-const widgetHeight = ref<string>("0px");
-watch(
-  [notifications, notificationElements],
-  () => {
-    const totalHeight = [...notificationElements.values()]
-      .map((el) => el.getBoundingClientRect().height)
-      .reduce((prev, curr) => prev + curr, 0);
+const widgetHeight = computed(() => {
+  const totalHeight = [...notificationElements.values()]
+    .map((el) => el.getBoundingClientRect().height)
+    .reduce((prev, curr) => prev + curr, 0);
 
-    widgetHeight.value = totalHeight > 600 ? "600px" : `${totalHeight}px`;
-  },
-  { deep: true, immediate: true }
-);
+  return totalHeight > 600 ? "600px" : `${totalHeight}px`;
+});
 
 // const interval = setInterval(() => notifications.pop(), 3000);
 // onBeforeUnmount(() => {
@@ -140,3 +138,5 @@ watch(
   align-items: start;
 }
 </style>
+
+object { id:2 name:'123' }
