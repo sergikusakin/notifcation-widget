@@ -19,9 +19,9 @@
       class="transition-all duration-500"
     >
       <!-- organization info -->
-      <template #element="item">
+      <!-- <template #element="item">
         <div>{{ item.name }}</div>
-      </template>
+      </template> -->
 
       <div class="flex flex-col">
         <div
@@ -89,19 +89,19 @@ const emit = defineEmits<{
 
 //#region Heigth Widget
 
-let notificationElements: Set<Element> = reactive(new Set<Element>());
+let organizationElements: Set<Element> = reactive(new Set<Element>());
 const addNotificationElement = (el: Element | null) => {
   if (el) {
-    notificationElements.add(el);
+    organizationElements.add(el);
   }
 };
 
 watch([props], () => {
-  notificationElements.clear();
+  organizationElements.clear();
 });
 
 const widgetHeight = computed(() => {
-  const totalHeight = [...notificationElements.values()]
+  const totalHeight = [...organizationElements.values()]
     .map((el) => el.getBoundingClientRect().height)
     .reduce((prev, curr) => prev + curr, 0);
 
