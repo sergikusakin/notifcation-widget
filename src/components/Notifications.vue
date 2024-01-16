@@ -17,15 +17,8 @@
 
     <template #popper>
       <!-- You can put other components too -->
-      <pv-scroll-panel
-        :style="{ height: widgetHeight, width: '350px' }"
-        class="transition-all duration-500"
-      >
-        <div
-          v-for="item in notifications"
-          :ref="(el) => addNotificationElement(el as Element)"
-          class="pt-1 border-b border-slate-400 w-[350px]"
-        >
+      <auto-height-scrollable-list :list="notifications">
+        <template #element="slotProps">
           <!-- text and avatar of notification -->
           <div class="flex p-2">
             <div class="rounded-full w-10 h-10 bg-yellow-300"></div>
@@ -36,6 +29,7 @@
               </p>
             </div>
           </div>
+
           <!-- btns actions -->
           <div class="p-2 h-12 flex justify-between">
             <div class="flex gap-2 justify-center">
@@ -65,8 +59,8 @@
               </pv-button>
             </div>
           </div>
-        </div>
-      </pv-scroll-panel>
+        </template>
+      </auto-height-scrollable-list>
 
       <!-- control -->
       <div class="flex justify-between p-1 bg-yellow-500 w-[350px]">
@@ -101,34 +95,11 @@ import PvBadge from "primevue/badge";
 import PvButton from "primevue/button";
 import PvScrollPanel from "primevue/scrollpanel";
 import { ref, watch, reactive, computed } from "vue";
+import AutoHeightScrollableList from "@/components/UI/AutoHeightScrollableList.vue";
 
 const props = defineProps<{
   notifications: unknown[];
 }>();
-
-let notificationElements: Set<Element> = reactive(new Set<Element>());
-const addNotificationElement = (el: Element | null) => {
-  if (el) {
-    notificationElements.add(el);
-  }
-};
-
-watch([props], () => {
-  notificationElements.clear();
-});
-
-const widgetHeight = computed(() => {
-  const totalHeight = [...notificationElements.values()]
-    .map((el) => el.getBoundingClientRect().height)
-    .reduce((prev, curr) => prev + curr, 0);
-
-  return totalHeight > 600 ? "600px" : `${totalHeight}px`;
-});
-
-// const interval = setInterval(() => notifications.pop(), 3000);
-// onBeforeUnmount(() => {
-//   clearInterval(interval);
-// });
 </script>
 
 <style scoped>
