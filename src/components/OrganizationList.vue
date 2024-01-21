@@ -60,8 +60,6 @@ import PvInputText from "primevue/inputtext";
 import { Icon as IIcon } from "@iconify/vue";
 import searchLine from "@iconify-icons/clarity/search-line";
 import orgImg from "@/assets/img/org.png";
-import PvScrollPanel from "primevue/scrollpanel";
-import { reactive, watch, computed } from "vue";
 import AutoHeightScrollableList from "./UI/AutoHeightScrollableList.vue";
 
 const search = defineModel<string>("search");

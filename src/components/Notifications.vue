@@ -93,8 +93,6 @@ import listOutline from "@iconify-icons/solar/list-outline";
 import bellOff from "@iconify-icons/mdi/bell-off";
 import PvBadge from "primevue/badge";
 import PvButton from "primevue/button";
-import PvScrollPanel from "primevue/scrollpanel";
-import { ref, watch, reactive, computed } from "vue";
 import AutoHeightScrollableList from "@/components/UI/AutoHeightScrollableList.vue";
 
 const props = defineProps<{
@@ -109,5 +107,3 @@ const props = defineProps<{
   align-items: start;
 }
 </style>
-
-object { id:2 name:'123' }
