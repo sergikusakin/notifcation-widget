@@ -5,6 +5,7 @@ import PrimeVue from "primevue/config";
 import "primevue/resources/primevue.css";
 import "primevue/resources/themes/mdc-light-indigo/theme.css";
 import "floating-vue/dist/style.css";
+import "./input.css";
 
 const app = createApp(App);
 
